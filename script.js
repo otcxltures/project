@@ -1,4 +1,38 @@
 
+// PUBLIC API - Exchange Rate
+// Free API from https://www.exchangerate-api.com/
+// ============================================
+
+function fetchExchangeRate() {
+    var usdDisplay = document.getElementById("usdAmount");
+    
+    if (budget <= 0) {
+        if (usdDisplay) usdDisplay.innerHTML = "Set budget first";
+        return;
+    }
+    
+    if (usdDisplay) usdDisplay.innerHTML = "Loading...";
+    
+    fetch('https://api.exchangerate-api.com/v4/latest/KES')
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error("API failed");
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            var rate = data.rates.USD;
+            var usdValue = budget * rate;
+            
+            if (usdDisplay) usdDisplay.innerHTML = "$" + usdValue.toFixed(2) + " USD";
+            console.log("Exchange rate: 1 KSH = " + rate + " USD");
+        })
+        .catch(function(error) {
+            console.log("Exchange rate error:", error);
+            if (usdDisplay) usdDisplay.innerHTML = "Unavailable";
+        });
+}
+
 // ============================================
 
 // Get elements from HTML
