@@ -1,60 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PesaPal - Student Expense Tracker</title>
+    <title>PesaPal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header class="header">
-        <div class="container header-content">
-            <div class="logo">
-                <img src="logo.png" alt="PesaPal Logo">
-                <div class="logo-text">
-                    <h1>PesaPal</h1>
-                    <p>Student expense tracker</p>
-                </div>
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" width="50">
+            <div>
+                <h1>PesaPal</h1>
+                <p>Student expense tracker</p>
             </div>
-            <nav class="nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="tracker.html">Tracker</a>
-                <a href="summary.html">Summary</a>
-                
-            </nav>
         </div>
-    </header>
+        <div class="nav">
+            <a href="index.html" style="background:#b8f2d8;">Home</a>
+            <a href="tracker.html">Tracker</a>
+            <a href="summary.html">Summary</a>
+        </div>
+    </div>
 
-    <main class="container">
-        <section class="hero">
-            <h2>Track expenses and stay under your budget</h2>
-            <p>PesaPal helps students log spending, set a budget, and receive alerts before overspending.</p>
-            <div class="hero-buttons">
-                <a href="tracker.html" class="btn btn-primary">Open Tracker</a>
-                <a href="summary.html" class="btn btn-secondary">View Summary</a>
+    <div class="container">
+        <div class="hero">
+            <h2>Track your expenses easily</h2>
+            <p>Set a budget, add expenses, and see how much you have left.</p>
+            <br>
+            <a href="tracker.html" class="btn btn-blue">Start Tracking</a>
+        </div>
+
+        <div class="features">
+            <div class="box">
+                <h3>Set Budget</h3>
+                <p>Decide how much to spend each month.</p>
             </div>
-        </section>
-
-        <section class="features">
-            <article class="feature-card">
-                <h3>Budget Control</h3>
-                <p>Set your monthly budget and see how much money you have left.</p>
-            </article>
-            <article class="feature-card">
-                <h3>Expense Log</h3>
-                <p>Add every purchase so you can check your spending at any time.</p>
-            </article>
-            <article class="feature-card">
-                <h3>Smart Warnings</h3>
-                <p>Get alerts when your spending gets close to your budget limit.</p>
-            </article>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>PesaPal - Made for students</p>
-    </footer>
+            <div class="box">
+                <h3>Add Expenses</h3>
+                <p>Write down what you buy.</p>
+            </div>
+            <div class="box">
+                <h3>See Warnings</h3>
+                <p>Get alerts when money is low.</p>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
