@@ -1,0 +1,12 @@
+{
+  "name": "pesapal",
+  "version": "1.0.0",
+  "description": "Student expense tracker",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
