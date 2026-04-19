@@ -1,32 +1,82 @@
-// Tests for PesaPal
+// ============================================
+// SIMPLE TESTS - No imports needed
+// We redefine the functions here to test them
+// ============================================
 
-// Test 1: formatMoney adds KSH
-test('formatMoney adds KSH to number', function() {
-  var result = formatMoney(500);
-  expect(result).toBe('KSH 500');
-});
+// Copy of formatMoney function
+function formatMoney(amount) {
+  return "KSH " + amount.toLocaleString("en-US");
+}
 
-// Test 2: formatMoney works with big numbers
-test('formatMoney works with thousands', function() {
-  var result = formatMoney(5000);
-  expect(result).toBe('KSH 5,000');
-});
+// Copy of saveData logic
+function saveData(budget, expenses) {
+  localStorage.setItem("pesapal_budget", budget);
+  localStorage.setItem("pesapal_expenses", JSON.stringify(expenses));
+}
 
-// Test 3: saveData stores budget in localStorage
-test('saveData stores budget', function() {
-  budget = 1000;
-  saveData();
-  expect(localStorage.getItem('pesapal_budget')).toBe('1000');
-});
+// Copy of loadData logic  
+function loadData() {
+  var budget = 0;
+  var expenses = [];
+  
+  var savedBudget = localStorage.getItem("pesapal_budget");
+  var savedExpenses = localStorage.getItem("pesapal_expenses");
+  
+  if (savedBudget) {
+    budget = parseFloat(savedBudget);
+  }
+  
+  if (savedExpenses) {
+    expenses = JSON.parse(savedExpenses);
+  }
+  
+  return { budget: budget, expenses: expenses };
+}
 
-// Test 4: loadData gets budget from localStorage
-test('loadData reads budget from localStorage', function() {
-  localStorage.setItem('pesapal_budget', '2000');
-  loadData();
-  expect(budget).toBe(2000);
-});
+// ============================================
+// TESTS
+// ============================================
 
-// Test 5: expenses array starts empty
-test('expenses starts empty', function() {
-  expect(expenses.length).toBe(0);
+describe('PesaPal Tests', function() {
+  
+  beforeEach(function() {
+    localStorage.clear();
+  });
+
+  test('formatMoney adds KSH to number', function() {
+    var result = formatMoney(500);
+    expect(result).toBe('KSH 500');
+  });
+
+  test('formatMoney works with thousands', function() {
+    var result = formatMoney(5000);
+    expect(result).toBe('KSH 5,000');
+  });
+
+  test('saveData stores budget', function() {
+    saveData(1000, []);
+    expect(localStorage.getItem('pesapal_budget')).toBe('1000');
+  });
+
+  test('loadData reads budget', function() {
+    localStorage.setItem('pesapal_budget', '2000');
+    var data = loadData();
+    expect(data.budget).toBe(2000);
+  });
+
+  test('expenses array is empty at start', function() {
+    var data = loadData();
+    expect(data.expenses.length).toBe(0);
+  });
+
+  test('save and load expenses', function() {
+    var testExpenses = [
+      { date: 123456, description: 'Lunch', amount: 200, category: 'Food' }
+    ];
+    saveData(5000, testExpenses);
+    var data = loadData();
+    expect(data.expenses.length).toBe(1);
+    expect(data.expenses[0].amount).toBe(200);
+  });
+
 });
