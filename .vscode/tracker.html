@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PesaPal - Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <img src="logo.png" width="50">
+            <div>
+                <h1>PesaPal</h1>
+                <p>Student expense tracker</p>
+            </div>
+        </div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="tracker.html" style="background:#b8f2d8;">Tracker</a>
+            <a href="summary.html">Summary</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Budget Form -->
+        <div class="card">
+            <h2>Your Budget</h2>
+            <form id="budgetForm">
+                <p>Monthly Budget (KSH):</p>
+                <input type="number" id="budgetInput" placeholder="5000">
+                <br><br>
+                <button type="submit" class="btn btn-blue">Save Budget</button>
+            </form>
+        </div>
+
+        <!-- Expense Form -->
+        <div class="card">
+            <h2>Add Expense</h2>
+            <form id="expenseForm">
+                <p>What did you buy?</p>
+                <input type="text" id="descInput" placeholder="Lunch">
+                
+                <p>How much?</p>
+                <input type="number" id="amountInput" placeholder="200">
+                
+                <p>Category:</p>
+                <select id="categoryInput">
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Books</option>
+                    <option>Fun</option>
+                </select>
+                <br><br>
+                <button type="submit" class="btn btn-blue">Add</button>
+            </form>
+        </div>
+
+        <!-- Summary -->
+        <div class="card">
+            <h2>Summary</h2>
+            <div class="stat">
+                <span>Budget:</span>
+                <b id="budgetTotal">KSH 0</b>
+            </div>
+            <div class="stat">
+                <span>Spent:</span>
+                <b id="budgetSpent">KSH 0</b>
+            </div>
+            <div class="stat">
+                <span>Left:</span>
+                <b id="budgetLeft">KSH 0</b>
+            </div>
+            
+            <div id="alertBox" class="alert">Set a budget first</div>
+        </div>
+
+    </div>
+
+    <!-- Expense List -->
+    <div class="container">
+        <div class="card">
+            <h2>Your Expenses</h2>
+            <table border="1" cellpadding="10" style="width:100%; margin-top:10px;">
+                <tr style="background:#e7f2ff;">
+                    <td>Date</td>
+                    <td>Item</td>
+                    <td>Type</td>
+                    <td>Cost</td>
+                </tr>
+                <tbody id="expenseTable">
+                    <tr>
+                        <td colspan="4" style="text-align:center; color:#777;">No expenses yet</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
