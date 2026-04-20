@@ -17,10 +17,8 @@
   box-sizing: border-box;
 }
 
-/* ============================================
-   THREE FONTS REQUIREMENT
-   ============================================ */
 
+   THREE FONTS REQUIREMENT
 /* Font 1: Serif for headings */
 h1, h2, h3, h4 {
   font-family: Georgia, "Times New Roman", serif;
@@ -42,7 +40,7 @@ body {
   line-height: 1.6;
 }
 
-/* I learned this trick for full-width colored sections */
+
 .header {
   background: var(--mint);
   padding: 20px 0;
@@ -65,7 +63,7 @@ body {
   gap: 20px;
 }
 
-/* Logo area using flexbox - I learned this from a tutorial */
+/* Logo area using flexbox */
 .logo {
   display: flex;
   align-items: center;
@@ -178,7 +176,7 @@ body {
   background: var(--mint-dark);
 }
 
-/* Features grid - I learned CSS grid recently */
+/* Features grid - */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -373,7 +371,7 @@ tbody tr:hover {
   margin-top: 40px;
 }
 
-/* Mobile responsive - I used a tutorial for this */
+/* Mobile responsive */
 @media (max-width: 768px) {
   .hero {
     padding: 25px;
